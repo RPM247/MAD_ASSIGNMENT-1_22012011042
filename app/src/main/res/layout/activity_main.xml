@@ -9,9 +9,9 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/logo_animation"
+        android:layout_width="300dp"
+        android:layout_height="375dp"
+        android:src="@drawable/cooking_anim"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

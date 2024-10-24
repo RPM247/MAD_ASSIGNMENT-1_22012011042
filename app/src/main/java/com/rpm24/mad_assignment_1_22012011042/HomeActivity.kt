@@ -1,5 +1,6 @@
 package com.rpm24.mad_assignment_1_22012011042
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +19,15 @@ class HomeActivity : AppCompatActivity() {
         binding=ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpRecyclerView()
+        binding.editText.setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+        }
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
     }
 
     private fun setUpRecyclerView() {
@@ -32,7 +35,6 @@ class HomeActivity : AppCompatActivity() {
         binding.rvPopular.layoutManager=LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         var db= Room.databaseBuilder(this@HomeActivity, AppDatabase::class.java, "db_name")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
             .createFromAsset("recipe.db")
             .build()
         var daoObject=db.getDao()

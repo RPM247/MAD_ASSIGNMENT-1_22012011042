@@ -1,5 +1,5 @@
 package com.rpm24.mad_assignment_1_22012011042
-import android.icu.text.CaseMap.Title
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -12,5 +12,4 @@ class Recipe(var img:String,
     @JvmField
     @PrimaryKey(autoGenerate = true)
     var uid = 0
-
 }
